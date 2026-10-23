@@ -1,0 +1,43 @@
+:root{
+  --bg:#F1EDFB; --card:#FFFFFF; --ink:#211B3A; --muted:#7B7396; --line:#DDD6F0;
+  --accent:#6D3CF0; --accent-ink:#FFFFFF;
+  --ok:#0E8F68; --okbg:#DDF5EC; --bad:#D4335A; --badbg:#FCE3EA;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#141026; --card:#1E1838; --ink:#EFEBFF; --muted:#9A92BD; --line:#322A55;
+    --accent:#9B7BFF; --accent-ink:#141026;
+    --ok:#4CD9A6; --okbg:#12382F; --bad:#FF7A98; --badbg:#44182A;
+  }
+}
+
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Sora',system-ui,sans-serif;
+  min-height:100vh;
+}
+
+.card{background:var(--card);border:1px solid var(--line)}
+
+.opt{
+  background:var(--card);
+  border:2px solid var(--line);
+  transition:border-color .15s, background .15s;
+}
+.opt:not(:disabled):hover{border-color:var(--accent)}
+.opt.ok{border-color:var(--ok);background:var(--okbg)}
+.opt.bad{border-color:var(--bad);background:var(--badbg)}
+
+.btn{background:var(--accent);color:var(--accent-ink)}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+code{font-family:ui-monospace,Menlo,monospace}
